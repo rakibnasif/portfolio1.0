@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rakibul Islam Asif | Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Pixelify+Sans:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F6F5F0;--ink:#111;--line:#DAD8CF;--yellow:#F5C842;--green:#1FA463;--pink:#F0508C;--blue:#2447D6;--mint:#BFE3CC;--sand:#EADFB8;--red:#E5533D}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Inter,sans-serif;color:var(--ink);line-height:1.6;
+background:var(--paper) repeating-linear-gradient(transparent 0 31px,var(--line) 31px 32px);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+section{padding:90px 0 30px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+.hand{font-family:Caveat,cursive;font-weight:700}
+.pixel{font-family:'Pixelify Sans',monospace;font-weight:700;line-height:.95}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:46px}
+.tabs{display:flex;gap:4px}
+.tabs a{padding:7px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;font-weight:700}
+.tabs a:hover,.tabs a.on{background:var(--yellow)}
+.dots{display:flex;gap:6px;align-items:center}
+.dots i{width:14px;height:14px;border:2px solid var(--ink);display:block}
+.dots .btn{border:1.5px solid var(--ink);padding:3px 10px;font-size:11px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;background:#fff}
+@media(max-width:560px){.tabs a{padding:7px 7px;font-size:10px}.dots i{display:none}}
+
+/* hero */
+.hero{text-align:center;padding-top:130px;position:relative}
+.nameBox{display:inline-block;position:relative;border:2px solid var(--red);padding:8px 28px;background:#fff;margin:34px 0 22px;transform:rotate(-1deg)}
+.nameBox h1{font-size:clamp(34px,8vw,78px);letter-spacing:1px}
+.sticker{position:absolute;font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;font-weight:700;padding:4px 10px;white-space:nowrap}
+.s1{background:var(--mint);top:-38px;left:-34px;transform:rotate(-4deg)}
+.s2{background:var(--sand);top:-38px;right:-30px;transform:rotate(3deg)}
+.s3{background:var(--yellow);bottom:-24px;left:-50px;transform:rotate(-3deg)}
+.s4{background:var(--mint);bottom:-24px;right:-50px;transform:rotate(4deg)}
+.intro{font-size:22px;display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:-18px;position:relative;z-index:2}
+.intro svg{margin-top:2px}
+.badge{display:inline-flex;gap:8px;align-items:center;font-size:12px;margin-top:18px}
+.badge b{width:8px;height:8px;background:var(--blue);display:inline-block}
+.tagline{font-size:clamp(24px,4vw,38px);font-weight:600;line-height:1.2;margin-top:14px}
+.tagline em{font-style:normal;background:linear-gradient(transparent 60%,var(--yellow) 60%)}
+.cta{display:inline-flex;gap:10px;align-items:center;margin-top:26px;background:var(--ink);color:#fff;padding:12px 20px;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;font-weight:700;box-shadow:4px 4px 0 var(--green);transition:.15s}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--green)}
+.cta.alt{background:#fff;color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--pink);margin-left:8px}
+.avatar{position:absolute;width:44px;height:44px;border-radius:50%;border:3px solid var(--red);background:var(--yellow);display:grid;place-items:center;font-size:20px}
+.a1{left:8%;top:260px}.a2{right:8%;top:300px;border-color:var(--blue)}
+@media(max-width:700px){.avatar{display:none}.s1,.s3{left:-8px}.s2,.s4{right:-8px}}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:30px;align-items:center;margin-top:30px}
+@media(max-width:800px){.about{grid-template-columns:1fr}}
+.polaroid{background:#fff;padding:10px 10px 30px;box-shadow:0 6px 18px rgba(0,0,0,.15);position:relative;transform:rotate(-4deg);justify-self:center;width:190px}
+.polaroid.r{transform:rotate(4deg)}
+.polaroid .img{aspect-ratio:1;display:grid;place-items:center;font-size:64px;background:var(--mint)}
+.polaroid.r .img{background:var(--sand)}
+.polaroid span{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:20px}
+.tape{position:absolute;top:-12px;left:50%;width:60px;height:22px;background:rgba(160,190,230,.65);transform:translateX(-50%) rotate(-5deg)}
+.about p{font-family:Caveat,cursive;font-weight:500;font-size:25px;line-height:1.35;text-align:center}
+.pill{display:inline-block;border:1.5px solid var(--ink);background:#fff;padding:2px 14px;font-size:15px;margin-bottom:12px;font-family:Inter}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+.chip{padding:8px 16px;font-weight:600;font-size:14px;color:#fff;clip-path:polygon(0 8%,3% 0,97% 4%,100% 0,100% 92%,97% 100%,3% 96%,0 100%)}
+.c1{background:var(--yellow);color:var(--ink)}.c2{background:var(--green)}.c3{background:var(--pink)}.c4{background:var(--blue)}.c5{background:var(--ink)}.c6{background:var(--red)}
+
+/* roadmap */
+.road{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+.road div{background:#fff;border:2px solid var(--ink);padding:10px 16px;font-size:14px;box-shadow:3px 3px 0 var(--ink)}
+.road small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;color:var(--green)}
+.road .l small{color:var(--blue)}.road .e small{color:#888}
+
+/* projects */
+h2.pixel{font-size:clamp(40px,8vw,84px);margin:6px 0 30px}
+.filters{display:flex;gap:8px;margin-bottom:24px}
+.filters button{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;border:2px solid var(--ink);background:#fff;padding:5px 14px;cursor:pointer;font-weight:700}
+.filters button.on{background:var(--yellow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px}
+.card{position:relative;cursor:pointer;transition:.2s}
+.card:hover{transform:translateY(-6px) rotate(-.6deg)}
+.date{display:inline-block;background:var(--sand);padding:6px 24px 6px 12px;font-size:10px;clip-path:polygon(0 0,85% 0,100% 100%,0 100%);font-family:'JetBrains Mono',monospace;text-transform:uppercase}
+.card:nth-child(3n+2) .date{background:var(--mint)}
+.card:nth-child(3n) .date{background:var(--yellow)}
+.shot{aspect-ratio:4/3;border:3px solid var(--ink);display:grid;place-items:center;font-size:80px;position:relative;box-shadow:6px 6px 0 var(--ink)}
+.card:nth-child(4n+1) .shot{background:var(--mint)}
+.card:nth-child(4n+2) .shot{background:#1b1b1b}
+.card:nth-child(4n+3) .shot{background:var(--yellow)}
+.card:nth-child(4n) .shot{background:var(--pink)}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.card h3{text-align:center;margin-top:18px;font-size:19px}
+.card p{text-align:center;font-size:12px;color:#666;padding:0 10px}
+.links{display:flex;gap:8px;justify-content:center;margin-top:10px}
+.links a{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--ink)}
+.soon{display:grid;place-items:center;border:2px dashed #999;min-height:220px;color:#888;font-family:Caveat;font-size:26px;cursor:default}
+.soon:hover{transform:none}
+.live{margin-top:60px}
+.live .hand{font-size:32px}
+
+/* contact */
+.contact{background:var(--ink);color:#fff;padding:36px;margin-top:20px;clip-path:polygon(0 0,70% 0,73% 12px,100% 12px,100% 100%,0 100%)}
+.contact h2{color:#fff;margin-bottom:10px}
+.contact .row{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+.contact .row a{border:2px solid #fff;padding:9px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;font-weight:700}
+.contact .row a:first-child{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.contact .row a:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+footer{text-align:center;padding:36px 0;font-size:12px;color:#777}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="tabs">
+    <a href="#top" class="on">★ Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </div>
+  <div class="dots"><i style="background:var(--yellow)"></i><i style="background:var(--pink)"></i><i style="background:var(--green)"></i><a class="btn" href="#contact">♥ Contact</a></div>
+</div></nav>
+
+<div class="wrap">
+<section id="top" class="hero">
+  <div class="avatar a1">👨‍💻</div><div class="avatar a2">☕</div>
+  <div class="hand intro">my name is
+    <svg viewBox="0 0 60 70" width="46" height="54" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4C38 12 16 34 34 54"/><path d="M22 48L34 56L42 42"/></svg>
+  </div>
+  <div class="nameBox">
+    <span class="sticker s1">Made things</span><span class="sticker s2">Sweat the details</span>
+    <h1 class="pixel">RAKIBUL<br>ISLAM ASIF</h1>
+    <span class="sticker s3">Frontend dev</span><span class="sticker s4">Dhaka, BD</span>
+  </div>
+  <div class="tagline">I build web things that feel<br><em>simple and fun</em> to use.</div>
+  <div><div class="badge mono" style="margin-top:22px"><b></b> Open to internships &amp; entry-level roles</div></div>
+  <div style="margin-top:8px"><a class="cta" href="#projects">▶ View projects</a><a class="cta alt" href="resume.pdf" download>Resume</a></div>
+</section>
+
+<section id="about">
+  <div class="hand" style="font-size:20px">about me!</div>
+  <div class="about">
+    <div class="polaroid"><div class="tape"></div><div class="img">🧑‍💻</div><span class="hand">coding...</span></div>
+    <div style="text-align:center">
+      <span class="pill">what's up</span>
+      <p>I'm a recent CSE grad who learns by building. I love turning small ideas into things people can click and play with. ✨ Now going deeper into backend, and curious about AI/ML.</p>
+    </div>
+    <div class="polaroid r"><div class="tape"></div><div class="img">🎮</div><span class="hand">games &amp; ui</span></div>
+  </div>
+  <div class="chips">
+    <span class="chip c1">HTML</span><span class="chip c2">CSS</span><span class="chip c3">JavaScript</span>
+    <span class="chip c4">Git / GitHub</span><span class="chip c5">Node.js</span><span class="chip c6">Databases</span>
+  </div>
+  <div class="road">
+    <div><small>Done</small>HTML, CSS, JS</div>
+    <div class="l"><small>Learning</small>Node.js &amp; APIs</div>
+    <div class="l"><small>Learning</small>Databases</div>
+    <div class="e"><small>Exploring</small>AI/ML basics</div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="hand" style="font-size:20px">explore my work!</div>
+  <h2 class="pixel">FEATURED<br>WORKS</h2>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+
+  <div class="live">
+    <div class="hand">Live websites</div>
+    <div class="grid" style="margin-top:20px">
+      <div class="card" onclick="window.open('https://suvarx.com/','_blank')">
+        <span class="date">● 2026 · E-commerce</span>
+        <div class="shot" style="background:var(--blue)">🚗<img src="images/suvar.jpg" alt="SUVAR homepage" onerror="this.remove()"></div>
+        <h3>SUVAR</h3><p>Premium car accessories storefront. Installable and mobile-first.</p>
+        <div class="links"><a href="https://suvarx.com/" target="_blank">Visit site ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div class="hand" style="font-size:22px">say hi!</div>
+    <h2 class="pixel">LET'S TALK</h2>
+    <p>Internship or entry-level role? Or just want to chat about a project?</p>
+    <div class="row">
+      <a href="mailto:rakibnasif@gmail.com">Email me</a>
+      <a href="https://www.linkedin.com/in/rakibnasif/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/rakibnasif" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+</div>
+<footer>© 2026 Rakibul Islam Asif</footer>
+
+<script>
+const projects=[
+ {t:"Student Card",d:"A neat digital student ID card, responsive layout.",c:"UI",e:"🪪",u:"https://rakibnasif.github.io/StudentCard3.0/",r:"https://github.com/rakibnasif/StudentCard3.0"},
+ {t:"Rock Paper Scissors",d:"Play against the computer and keep score.",c:"Game",e:"✊",u:"https://rakibnasif.github.io/RockPaperScissorsG/",r:"https://github.com/rakibnasif/RockPaperScissorsG"},
+ {t:"Chor Police Babu Dakat",d:"Bengali guessing game with online multiplayer and voice chat.",c:"Game",e:"🕵️",u:"https://rakibnasif.github.io/ChorPoliceV4.0/",r:"https://github.com/rakibnasif/ChorPoliceV4.0"},
+ {t:"Auction With Friends",d:"Live auction draft game. Bid for stars, build your squad.",c:"Game",e:"🔨",u:"https://rakibnasif.github.io/AuctionGame_v2.0/",r:"https://github.com/rakibnasif/AuctionGame_v2.0"}
+];
+const grid=document.getElementById('grid'),fb=document.getElementById('filters');
+function show(cat){
+  grid.innerHTML='';
+  projects.filter(p=>cat==='All'||p.c===cat).forEach(p=>{
+    const el=document.createElement('article');el.className='card';
+    el.innerHTML=`<span class="date">● 2026 · ${p.c}</span><div class="shot">${p.e}</div><h3>${p.t}</h3><p>${p.d}</p><div class="links"><a href="${p.u}" target="_blank">Live ↗</a></div>`;
+    el.onclick=e=>{if(!e.target.closest('a'))window.open(p.u,'_blank')};
+    grid.appendChild(el);
+  });
+  const s=document.createElement('div');s.className='card soon';s.textContent='more coming soon…';grid.appendChild(s);
+}
+['All',...new Set(projects.map(p=>p.c))].forEach((c,i)=>{
+  const b=document.createElement('button');b.textContent=c;if(!i)b.className='on';
+  b.onclick=()=>{[...fb.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');show(c)};
+  fb.appendChild(b);
+});
+show('All');
+const links=[...document.querySelectorAll('.tabs a')],secs=[...document.querySelectorAll('section')];
+addEventListener('scroll',()=>{let cur='top';secs.forEach(s=>{if(s.getBoundingClientRect().top<160)cur=s.id});
+ links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))});
+</script>
+</body>
+</html>
